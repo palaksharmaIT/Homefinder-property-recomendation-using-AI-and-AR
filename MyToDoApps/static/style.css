@@ -1,0 +1,386 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color:#243642;
+    color: white;
+}
+
+header .logo h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+header .active a {
+    background-color: red;
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+#hero {
+    background: url("./image/img104.jpg") no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 6rem 2rem;
+    position: relative;
+}
+
+#hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Optional: Adds a dark overlay for better text visibility */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+#hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+#hero .cta-btn {
+    padding: 0.75rem 2rem;
+    background-color:#243642;
+    color: blue;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+
+/* About Section - Blue Plate */
+/* #about {
+    background-color:#387478;
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+#about h2 {
+    margin-bottom: 2rem;
+}
+
+#about p {
+    font-size: 1.2rem;
+    margin: 0 auto;
+    max-width: 700px;
+}
+#about p:hover{
+    color: #243642;
+} */
+
+/* Properties Section - Green Plate */
+#properties {
+    background-color: #CBD2A4;
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+#properties h2 {
+    margin-bottom: 2rem;
+}
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Slider Styling */
+.slider {
+    background-color: white;  /* Set the default background color to white */
+    background-size: cover;  /* Ensure background images cover the area */
+    animation: slider 15s linear infinite;  /* Animation for changing background images */
+    width: 100%;
+    height: 200px;  /* Adjust height as needed */
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+@keyframes slider {
+    0% { background-image: url('img6.jpg'); }
+    30% { background-image: url('img7.png'); }
+    60% { background-image: url('img8.webp'); }
+    100% { background-image: url('img9.png'); }
+}
+
+
+.property {
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.property img {
+    width: 100%;
+    border-radius: 10px;
+    height: 200px;
+}
+
+.property h3 {
+    margin: 1rem 0 0.5rem;
+    color: #333;
+}
+
+.property p {
+    color: #666;
+}
+
+/* Testimonials Section - Yellow Plate */
+#testimonials {
+    background-color: #9A7E6F;
+    padding: 4rem 2rem;
+}
+
+#testimonials h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.testimonial {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.testimonial p {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+/* Contact Section - Purple Plate */
+#contact {
+    background-color:#54473F;
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+#contact:hover{
+    background-color: linear gradient;
+}
+
+#contact p {
+    margin-bottom: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+form input, form textarea {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 0.75rem;
+    background-color: #D0B8A8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: gray;
+    color: white;
+}
+/* Navigation Link Styles */
+nav ul li a {
+    text-decoration: none;
+    color: white; /* Default link color */
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+nav ul li.active a {
+    background-color: #3b9559; /* Highlight color for the active link */
+    font-weight: bold; /* Make it bold */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: add a subtle shadow */
+}
+
+.css-15c8g2n {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: #fff !important;
+    width: 290px;
+    height: 45px;
+    box-shadow: 0 1px 10px 0 rgb(0 0 0 / 10%);
+    bottom: 0;
+    right: 20px;
+    position: fixed;
+    z-index: 9;
+    font-family: 'Source Sans Pro',sans-serif;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    -webkit-letter-spacing: 0;
+    -moz-letter-spacing: 0;
+    -ms-letter-spacing: 0;
+    letter-spacing: 0;
+    cursor: pointer;
+    -webkit-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    opacity: 1;
+}
+
+
+.chat-container {
+    width: 350px;
+    height: 500px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    overflow: hidden;
+    display: none;
+    position: fixed;
+    bottom: 75px;
+    right: 10px;
+    z-index: 1000;
+   
+}
+
+.chat-header {
+    background-color: #075E54;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.message {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    max-width: 75%;
+}
+
+.user-message {
+    background-color: #dcf8c6;
+    align-self: flex-end;
+}
+
+.bot-message {
+    background-color: #ececec;
+    align-self: flex-start;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+.chat-input button {
+    padding: 10px;
+    border: none;
+    background-color: #128C7E;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.chat-input button:hover {
+    background-color: #0e7c6a;
+}
+
+.chat-box {
+    height: 385px;  /* Ensure a fixed height */
+    padding: 10px;
+    overflow-y: auto; /* Enable scrolling */
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: thin; /* For Firefox */
+}
+
+/* For WebKit Browsers (Chrome, Edge, Safari) */
+.chat-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}

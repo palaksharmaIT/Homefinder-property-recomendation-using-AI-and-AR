@@ -1,0 +1,178 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties - Real Estate</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        .properties-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .property {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 15px;
+            text-align: center;
+            width: 300px;
+        }
+        .property img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .property h3 {
+            color: #333;
+            margin: 10px 0;
+        }
+        .property p {
+            color: #555;
+            margin: 5px 0;
+        }
+        .property button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .property button:hover {
+            background-color: #218838;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% include "header.html" %}  <!-- Including header -->
+    
+    <div class="properties-list">
+        <div class="property">
+            <img src="{% static 'image/img103.jpg' %}" alt="Property 1">
+            <h3>Luxury Apartment</h3>
+            <p>3 Bed | 2 Bath | 1500 sqft</p>
+            <p>Price: Rs 500,000</p>
+            <button onclick="inquire('Luxury Apartment')">Inquire</button>
+        </div>
+        <div class="property">
+            <img src="{% static 'image/img104.jpg' %}" alt="Property 2">
+            <h3>Modern Villa</h3>
+            <p>4 Bed | 3 Bath | 2500 sqft</p>
+            <p>Price: Rs 850,000</p>
+            <button onclick="inquire('Modern Villa')">Inquire</button>
+        </div>
+        <div class="property">
+            <img src="{% static 'image/img108.jpg' %}" alt="Property 3">
+            <h3>Cozy House</h3>
+            <p>2 Bed | 1 Bath | 1200 sqft</p>
+            <p>Price: Rs 350,000</p>
+            <button onclick="inquire('Cozy House')">Inquire</button>
+        </div>
+        <div class="property">
+            <img src="{% static 'image/img107.jpg' %}" alt="Property 4">
+            <h3>Downtown Condo</h3>
+            <p>2 Bed | 2 Bath | 1100 sqft</p>
+            <p>Price: Rs 450,000</p>
+            <button onclick="inquire('Downtown Condo')">Inquire</button>
+        </div>
+        <div class="property">
+            <img src="{% static 'image/img101.jpg.jpg' %}" alt="Property 5">
+            <h3>Beachfront Villa</h3>
+            <p>5 Bed | 4 Bath | 3000 sqft</p>
+            <p>Price: Rs 1,200,000</p>
+            <button onclick="inquire('Beachfront Villa')">Inquire</button>
+        </div>
+        <div class="property">
+            <img src="{% static 'image/8.jpg' %}" alt="Property 6">
+            <h3>Suburban Home</h3>
+            <p>3 Bed | 2 Bath | 1800 sqft</p>
+            <p>Price: Rs 600,000</p>
+            <button onclick="inquire('Suburban Home')">Inquire</button>
+        </div>
+        <div class="property">
+            <img src="{% static 'image/img109.jpg' %}"alt="Property 7">
+            <h3>Country House</h3>
+            <p>4 Bed | 3 Bath | 2200 sqft</p>
+            <p>Price: Rs 750,000</p>
+            <button onclick="inquire('Country House')">Inquire</button>
+        </div>
+        <div class="property">
+            <img src="{% static 'image/img105.jpg' %}" alt="Property 8">
+            <h3>Mountain Retreat</h3>
+            <p>3 Bed | 2 Bath | 1700 sqft</p>
+            <p>Price: Rs 550,000</p>
+            <button onclick="inquire('Mountain Retreat')">Inquire</button>
+        </div>
+        <div class="property">
+            <img src="{% static 'image/img106.jpg' %}" alt="Property 9">
+            <h3>Lakefront Cabin</h3>
+            <p>2 Bed | 1 Bath | 1000 sqft</p>
+            <p>Price: Rs 2500,000</p>
+            <button onclick="inquire('Lakefront Cabin')">Inquire</button>
+        </div>
+        <div class="property">
+            <img src="{% static 'image/img120.jpg' %}" alt="Property 10">
+            <h3> Tranquil Waterside Retreat</h3>
+            <p>4 Bed | 3 Bath | 1800 sqft</p>
+            <p>Price: Rs 2900,000</p>
+            <button onclick="inquire(' Tranquil Waterside Retreat')">Inquire</button>
+        </div>
+        <div class="property">
+            <img src="{% static 'image/img111.jpg' %}" alt="Property 11">
+            <h3>Blue Horizon Villa</h3>
+            <p>5 Bed | 1 Bath | 1900 sqft</p>
+            <p>Price: Rs 4000,000</p>
+            <button onclick="inquire('Blue Horizon Villa')">Inquire</button>
+        </div>
+        <div class="property">
+            <img src="{% static 'image/img110.jpg' %}" alt="Property 12">
+            <h3>Golden Bay Getaway</h3>
+            <p>5Bed | 3 Bath | 4000 sqft</p>
+            <p>Price: Rs 600,000</p>
+            <button onclick="inquire('Golden Bay Getaway')">Inquire</button>
+        </div>
+    </div>
+    
+    
+    {% include "form.html" %}
+    
+    <script>
+        function inquire(propertyName) {
+            alert(`Thank you for your interest in ${propertyName}. Our team will contact you soon!`);
+        }
+    </script>
+</body>
+</html>

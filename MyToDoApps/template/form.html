@@ -1,0 +1,113 @@
+{%load static%}
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Real Estate in India</h3>
+            <ul>
+                <li><a href="#">Property in New Delhi</a></li>
+                <li><a href="#">Property in Mumbai</a></li>
+                <li><a href="#">Property in Chennai</a></li>
+                <li><a href="#">Property in Pune</a></li>
+                <li><a href="#">Property in Noida</a></li>
+                <li><a href="#">Property in Gurgaon</a></li>
+                <li><a href="#">Property in Bangalore</a></li>
+                <li><a href="#">Property in Hyderabad</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>New Projects in India</h3>
+            <ul>
+                <li><a href="#">New Projects in New Delhi</a></li>
+                <li><a href="#">New Projects in Mumbai</a></li>
+                <li><a href="#">New Projects in Chennai</a></li>
+                <li><a href="#">New Projects in Pune</a></li>
+                <li><a href="#">New Projects in Noida</a></li>
+                <li><a href="#">New Projects in Gurgaon</a></li>
+                <li><a href="#">New Projects in Bangalore</a></li>
+                <li><a href="#">New Projects in Hyderabad</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Company</h3>
+            <ul>
+                <li><a href="#">Sitemap</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Whistle Blower Policy</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="#">Unsubscribe</a></li>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Sales Enquiry</a></li>
+                <li><a href="#">Buy Our Services</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-social">
+        <a href="#" class="social-icon"><img src="{% static 'image/instagram.png' %}" alt="Instagram"></a>
+        <a href="#" class="social-icon"><img src="{% static 'image/linkedin.png' %}"alt="LinkedIn"></a>
+        <a href="#" class="social-icon"><img src="{% static 'image/youtube.png' %}"alt="YouTube"></a>
+        <a href="#" class="social-icon"><img src="{% static 'image/facebook.png' %}" alt="Facebook"></a>
+    </div>
+
+    <div class="footer-disclaimer">
+        <p>Disclaimer: HomeFinder is only an intermediary offering its platform to advertise properties of sellers for buyers/users. We do not control transactions between buyers and sellers. All offers and discounts on this website are provided by the sellers. HomeFinder does not sell or render any of these products or services directly.</p>
+        <p>&copy; 2025 HomeFinder. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<style>
+    footer {
+        background-color:#CDD7C9;
+        color: #fff;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .footer-section {
+        width: 30%;
+    }
+    .footer-section h3 {
+        border-bottom: 2px solid #ff6600;
+        padding-bottom: 5px;
+    }
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+    }
+    .footer-section ul li {
+        margin: 8px 0;
+    }
+    .footer-section ul li a {
+        color: #000;
+        text-decoration: none;
+    }
+    .footer-section ul li a:hover {
+        text-decoration: underline;
+    }
+    .footer-social {
+        text-align: center;
+        margin: 20px 0;
+    }
+    .social-icon {
+        display: inline-block;
+        margin: 0 10px;
+    }
+    .social-icon img {
+        width: 30px;
+        height: 30px;
+    }
+    .footer-disclaimer {
+        text-align: center;
+        padding-top: 20px;
+        font-size: 12px;
+    }
+</style>

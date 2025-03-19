@@ -1,0 +1,218 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'real.css' %}">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h4><i class="bi bi-house-door-fill"></i>HomeFinder</h4>
+            <div class="right_box">
+                <ul>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#"><i class="bi bi-globe"></i>Language</a></li>
+                    <li><a href="#">List Your Property</a></li>
+                </ul>
+                <div class="account_bx">
+                    <i class="bi bi-app-indicator"></i>
+                    <i class="bi bi-person"></i>
+
+
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="cont_bx">
+                <h1>Modern <br> house</h1>
+                <p>3 bedroom, 1kitchen, 2bathroom</p>
+                <div class="weather">
+                    <h6>42 &deg C; <span>Very Hot</span></h6>
+                </div>
+                <div class="btns_cont">
+                    <i class="bi bi-arrow-left" id="btn_left"></i>
+                    <i class="bi bi-arrow-right" id="btn_right"></i>
+
+                </div>
+                <div class="images_bx">
+                    <div class="card">
+                        <img src="{% static 'image/img1.jpg' %}" alt="House Image">
+                    </div>
+                    <div class="card">
+                        <img src="{% static 'image/img5.jpg' %}" alt="House Image">
+                    </div>
+                    <div class="card">
+                        <img src="{% static 'image/img3.jpg' %}" alt="House Image">
+                        <h6 id="h6">+6</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="choose_bx">
+                <div class="stay_bx">
+                    <button><i class="bi bi-house-door-fill"></i>
+                    </button>
+                    <button><i class="bi bi-star-fill"></i>
+                    </button>
+                    <button><i class="bi bi-tv-fill"></i>
+                    </button>
+                </div>
+                <div class="select">
+                    <div class="card">
+                        <h5>City</h5>
+                        <input type="text" value="India">
+                        <input type="text" value="Dubai">
+                    </div>
+                    <div class="card">
+                        <h5>People</h5>
+                        <input type="text" value="4 people" id="people">
+                        <button id="people_less">Less</button>
+                        <button id="people_more">More</button>
+                    </div>
+                    <div class="card">
+                        <div class="left_box">
+                            <h5>Check In</h5>
+                            <div class="date">
+                                <h3 id="checkin_data">Sat,01 Mar</h3>
+                                <input type="date" id="checkin" value="2022-08-11">
+                                <i class="bi bi-calendar-week-fill"></i>
+                            </div>
+                            <button id="checkin_less">Less</button>
+                            <button id="checkin_more">More</button>
+                        </div>
+                        <div class="right_box">
+                            <h5>Check Out</h5>
+                            <div class="date">
+                                <h3 id="checkout_data">Sun,02 Mar</h3>
+                                <input type="date" id="checkout" value="2022-08-11">
+                                <i class="bi bi-calendar-week-fill"></i>
+
+                            </div>
+                            <button type="button" id="checkout_less">Less</button>
+                            <button type="button"  id="checkout_more">More</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="map">
+        <div class="address_bx">
+            <div class="location_bx">
+                <h6>Location</h6>
+                <h4>Indore</h4>
+            </div>
+            <i class="bi bi-fullscreen-exit"></i>
+
+        </div>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235526.94958427813!2d75.69903291317726!3d22.724204999776163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fcad1b410ddb%3A0x96ec4da356240f4!2sIndore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1740502593220!5m2!1sen!2sin"
+            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="home">
+        <div class="title_button">
+            <h2>Explore more houses</h2>
+            <button>See All <i class="bi bi-arrow-right"></i>
+            </button>
+        </div>
+        <div class="home_bx">
+            <div class="card">
+                <img src="{% static 'image/img3.jpg' %}" alt="">
+                <div class="content">
+                    <i class="bi bi-balloon-heart"></i>
+                    <div class="cont">
+                        <h4>India</h4>
+                        <p>Dubai</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'image/img4.jpg' %}" alt="">
+                <div class="content">
+                    <i class="bi bi-balloon-heart"></i>
+                    <div class="cont">
+                        <h4>India</h4>
+                        <p>Dubai</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'image/img2.jpg' %}" alt="">
+                <div class="content">
+                    <i class="bi bi-balloon-heart"></i>
+                    <div class="cont">
+                        <h4>India</h4>
+                        <p>Dubai</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'image/img3.jpg' %}" alt="">
+                <div class="content">
+                    <i class="bi bi-balloon-heart"></i>
+                    <div class="cont">
+                        <h4>India</h4>
+                        <p>Dubai</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'image/img3.jpg' %}" alt="">
+                <div class="content">
+                    <i class="bi bi-balloon-heart"></i>
+                    <div class="cont">
+                        <h4>India</h4>
+                        <p>Dubai</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <section>
+        <h2>Our Service</h2>
+        <div class="box">
+            <div class="img_box">
+                <img src="{% static 'images/img3.jpg' %}">
+            </div>
+            <div class="cont_box">
+                <h6><span>OUR SERVICE</span></h6>
+                <h1>Comfort is our <br> Top Priority for you</h1>
+                <p>We specialize in designing and constructing modern homes, apartments, and commercial buildings that combine aesthetics with sustainability. From high-rise towers to serene houses, we bring you the perfect living spaces..</p>
+            <ul>
+                <li>Prenium natinal mark</li>
+                <li>Manged viewing</li>
+                <li>Frco, no obligation valuctions</li>
+                <li>Local area knowledge</li>
+
+            </ul>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions or want to visit a property? Get in touch with us.</p>
+        <form method="post">
+          {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    <footer>
+        <h4><i class="bi bi-house-door-fill"></i>House</h4>
+    </footer>
+    <script src="{% static 'js/real.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Property Details - HomeFinder</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+    }
+    .title {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+    .price {
+      font-size: 28px;
+      font-weight: bold;
+      color: #e74c3c;
+      margin-bottom: 15px;
+    }
+    .price a {
+      font-size: 28px;
+      font-weight: bold;
+      color: #e74c3c;
+      margin-bottom: 15px;
+    }
+
+    /* Image Slider */
+    .image-slider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .slider img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 50%;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* Property Details Grid */
+    .details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .detail-box {
+      background: #f1f1f1;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+      color: #555;
+    }
+
+    /* Additional Info */
+    .info {
+      padding: 12px 0;
+      border-bottom: 1px solid #ddd;
+      font-size: 16px;
+      color: #555;
+    }
+    .info strong {
+      color: #2c3e50;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      margin-top: 20px;
+      padding: 20px;
+      background: #2c3e50;
+      color: #fff;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .contact-section h3 {
+      margin-bottom: 10px;
+    }
+    .contact-btn {
+      display: inline-block;
+      background: #e74c3c;
+      color: #fff;
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: 0.3s ease;
+    }
+    .contact-btn:hover {
+      background: #c0392b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="title">4 BHK Residential House for Sale in Babusahib Palya, Bangalore</h1>
+    <p class="price">₹1.2 Crore</p>
+    <p class="price{% if request.path == '/ar-home/' %}active{% endif %}">
+      <a href="/ar-home">AR 360°</a></p>
+
+    <!-- Image Slider -->
+    <div class="image-slider">
+      <button class="slider-btn prev" onclick="prevSlide()">&#10094;</button>
+      <img id="slider-img" src="{% static 'image/img7.png' %}" alt="Property Image">
+      <button class="slider-btn next" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <!-- Property Details Grid -->
+    <div class="details">
+      <div class="detail-box">4 BHK</div>
+      <div class="detail-box">1350 sq.ft</div>
+      <div class="detail-box">Bangalore</div>
+      <div class="detail-box">₹8,900/sq.ft</div>
+      <div class="detail-box">Semi-Furnished</div>
+    </div>
+
+    <!-- Additional Information -->
+    <div class="info"><strong>Property Type:</strong> Independent House</div>
+    <div class="info"><strong>Floor:</strong> Ground + 2</div>
+    <div class="info"><strong>Nearby:</strong> Metro, Schools, Hospitals</div>
+
+    <!-- Contact Section -->
+    <div class="contact-section">
+      <h3>Interested in this property?</h3>
+      <p>Contact the owner directly for more details.</p>
+      <a href="#" class="contact-btn">Get Contact Details</a>
+    </div>
+  </div>
+
+  <script>
+    const images = [
+      "{% static 'image/img7.png' %}",
+      "{% static 'image/img2.jpg' %}",
+      "{% static 'image/img3.jpg' %}",
+      "{% static 'image/img4.jpg' %}"
+    ];
+
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      if (index >= images.length) index = 0;
+      if (index < 0) index = images.length - 1;
+      
+      document.getElementById("slider-img").src = images[index];
+      currentIndex = index;
+    }
+
+    function prevSlide() { showSlide(currentIndex - 1); }
+    function nextSlide() { showSlide(currentIndex + 1); }
+
+    window.onload = function () {
+      showSlide(0);
+    };
+  </script>
+
+</body>
+</html>

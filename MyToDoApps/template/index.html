@@ -1,0 +1,213 @@
+{% include "header.html" %}
+ {% load static %}
+
+ <section id="hero">
+    <div class="hero-content">
+        <h2>Find Your Perfect Home</h2>
+        <p>Explore the best properties, houses, flats, and plots to buy or rent!</p>
+        <form action="/search" method="GET">
+            <input type="text" name="search" placeholder="Search for a house, flat, or plot" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</section>
+  
+      <section >
+        <div class="map">
+            <div class="address_bx">
+                <i class="bi bi-fullscreen-exit"></i>
+    
+            </div>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235526.94958427813!2d75.69903291317726!3d22.724204999776163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fcad1b410ddb%3A0x96ec4da356240f4!2sIndore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1740502593220!5m2!1sen!2sin"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+          <!-- <h2>About HomeFinder</h2>
+          <p>We specialize in designing and constructing modern homes, apartments, and commercial buildings that combine aesthetics with sustainability. From high-rise towers to serene houses, we bring you the perfect living spaces.</p> -->
+      </section>
+  
+      <section id="properties">
+          <h2>Our Properties</h2>
+          <div class="property-grid">
+            <div class="property">
+                <img src="{% static 'image/8.jpg' %}" alt="Eco Flat">
+                <h3>Modern House</h3>
+                <p>Home is where one start from.</p>
+            </div>
+              <!-- Flats Section -->
+              <!-- <div class="slider">
+                
+                  <h3>Luxury Flats</h3>
+                  <p>Modern flats with spectacular city views and contemporary design.</p>
+              </div> -->
+              <div class="property">
+                  <img src="{% static 'image/img3.jpg' %}" alt="Eco Flat">
+                  <h3>Eco-Friendly Flats</h3>
+                  <p>Sustainable and energy-efficient flats in green urban environments.</p>
+              </div>
+  
+              <!-- Buildings Section -->
+              <div class="property">
+                  <img src="{% static 'image/img4.jpg' %}" alt="New York City">
+                  <h3>New York City</h3>
+                  <p>A high-rise building featuring world-class facilities in the heart of the city.</p>
+              </div>
+              <div class="property">
+                  <img src="{% static 'image/img5.jpg' %}" alt="Residential Land">
+                  <h3>Residential Land</h3>
+                  <p>Buy land,they're not making it anymore.</p>
+                  <!-- <p>Luxury beachfront apartments with panoramic views of the ocean.</p> -->
+              </div>
+  
+              <!-- Houses Section -->
+              <div class="property">
+                  <img src="{% static 'image/img10.jpg' %}" alt="Modern House">
+                  <h3>House</h3>
+                  <p>Spacious House with sleek, modern architecture and private gardens.</p>
+              </div>
+              <div class="property">
+                  <img src="{% static 'image/img11.jpg' %}" alt="Suburban House">
+                  <h3>2BHK Apartments</h3>
+                  <p>Family-friendly homes in peaceful.</p>
+              </div>
+          </div>
+      </section>
+  
+      <section id="testimonials">
+          <h2>What Our Clients Say</h2>
+          <div class="testimonial-grid">
+              <div class="testimonial">
+                  <p>"Soul Constructions built the perfect home for us. The attention to detail and sustainability features are outstanding!"</p>
+                  <h4>Sudhir Mehta</h4>
+              </div>
+              <div class="testimonial">
+                  <p>"Our flat is everything we dreamed of – luxurious, modern, and eco-friendly. Highly recommend their services!"</p>
+                  <h4>Rajesh Sharma</h4>
+              </div>
+          </div>
+      </section>
+  
+      <section id="contact">
+          <h2>Contact Us</h2>
+          <p>Have questions or want to visit a property? Get in touch with us.</p>
+          <form method="post">
+            {% csrf_token %}
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required>
+  
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+              <button type="submit">Send Message</button>
+          </form>
+      </section>
+      {% include "form.html" %}
+      <div class="css-15c8g2n">
+        <style data-emotion-css="a5xpxg">
+            .css-a5xpxg {
+                width: 26px;
+                height: 24px;
+                display: inline-block;
+                background: url(https://www.nykaa.com//assets/desktop/images/chat_logo.svg) no-repeat 0 0;
+                margin-top: 11px;
+                margin-left: 15px;
+                position: relative;
+            }
+        </style>
+        <div class="css-a5xpxg"></div>
+        <style data-emotion-css="w161wl">
+            .css-w161wl {
+                width: 160px;
+                font-size: 16px;
+                margin-top: 11px;
+                margin-left: 15px;
+            }
+        </style>
+        <div class="css-w161wl" id="chat-trigger">How may we help you</div>
+    </div>
+
+    <div class="chat-container" id="chat_container">
+        <div class="chat-header">HomeFinder Chatbot
+            <span style="float: right; cursor: pointer;" onclick="closeChat()">✖</span>
+        </div>
+        <div class="chat-box" id="chat-box"></div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            let inputField = document.getElementById("user-input");
+            let userMessage = inputField.value.trim();
+            if (userMessage === "") return;
+
+            appendMessage(userMessage, "user-message");
+
+            fetch("{% url 'chatbot_response' %}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": getCSRFToken(), // Include CSRF token for security
+                },
+                body: JSON.stringify({ message: userMessage }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                appendMessage(data.reply, "bot-message");
+            })
+            .catch(error => {
+                appendMessage("Error: Could not connect to the chatbot.", "bot-message");
+            });
+
+            inputField.value = "";
+        }
+
+        function appendMessage(message, className) {
+            let chatBox = document.getElementById("chat-box");
+            let messageDiv = document.createElement("div");
+            messageDiv.className = `message ${className}`;
+            messageDiv.textContent = message;
+            chatBox.appendChild(messageDiv);
+            
+            // Auto-scroll to the bottom
+            setTimeout(() => {
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 100);
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        }
+
+        // Function to get CSRF token from cookies
+        function getCSRFToken() {
+            let cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                let [name, value] = cookie.trim().split('=');
+                if (name === "csrftoken") {
+                    return value;
+                }
+            }
+            return "";
+        }
+    </script>
+    <script>
+       document.getElementById("chat-trigger").addEventListener("click", function() {
+            let chatBox = document.getElementById("chat_container");
+            chatBox.style.display = chatBox.style.display === "block" ? "none" : "block";
+        });
+
+    function closeChat() {
+        document.getElementById("chat_container").style.display = "none";
+    }
+    </script>
+    
+  </body>
+  </html>
+
+
+  

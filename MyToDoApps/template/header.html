@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Construction Properties</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>HomeFinder.com</h1>
+        </div>
+        <nav>
+            <ul>
+              <li class="{% if request.path == '/ar-home/' %}active{% endif %}">
+                <a href="/ar-home">AR 360°</a>
+              </li>
+              <li class="{% if request.path == '/result/' %}active{% endif %}">
+                <a href="/result">About</a>
+              </li>
+              <li class="{% if request.path == '/test/' %}active{% endif %}">
+                <a href="/test">Properties</a>
+              </li>
+              <li class="{% if request.path == '/contact/' %}active{% endif %}">
+                <a href="/contact">Contact</a>
+              </li>
+              <li class="{% if request.path == '/login/' %}active{% endif %}">
+                <a href="/login">sign In</a>
+              </li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>

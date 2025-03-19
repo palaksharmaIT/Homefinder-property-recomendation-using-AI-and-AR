@@ -1,0 +1,57 @@
+{
+    "hello": "Hi! How can I assist you with HomeFinder?",
+    "hi": "Hello! How can I help you today?",
+    "hey": "Hey there! What can I do for you?",
+    "help": "Sure! I can provide information about houses, pricing, locations, agents, financing, and more. What do you need help with?",
+    
+    "available houses": "We have various houses available. Would you like details on apartments, villas, townhouses, or commercial properties?",
+    "apartments": "We have modern apartments with 1BHK, 2BHK, and 3BHK options. What size are you looking for?",
+    "villas": "Luxury villas with private gardens and pools are available. Would you like details on pricing or locations?",
+    "townhouses": "Townhouses in gated communities with great amenities are available. Do you prefer urban or suburban locations?",
+    "commercial properties": "We have office spaces, retail shops, and warehouses. What kind of commercial property are you looking for?",
+    
+    "price range": "Our properties range from $50,000 to $5,000,000. What is your budget?",
+    "budget under 100k": "We have affordable apartments and small houses. Would you like listings in the city or outskirts?",
+    "budget 100k to 300k": "In this range, we offer spacious apartments and townhouses. Interested in a particular city?",
+    "budget 300k to 500k": "You can find premium properties, including penthouses and luxury homes. Would you like a virtual tour?",
+    "budget above 500k": "We have high-end luxury villas and prime real estate investments. Would you like to explore?",
+    
+    "location options": "We have properties in New York, California, Texas, Florida, and other states. Do you have a specific city in mind?",
+    "new york": "We have listings in Manhattan, Brooklyn, and Queens. Which area are you interested in?",
+    "california": "We have homes in Los Angeles, San Diego, and San Francisco. Would you like beachfront or city properties?",
+    "texas": "Houses in Houston, Dallas, and Austin are available. Are you looking for a family home or investment property?",
+    "florida": "Miami, Orlando, and Tampa have great properties. Do you prefer a condo or a single-family home?",
+    
+    "neighborhood details": "Each neighborhood has unique features. Are you interested in safety, schools, nightlife, or transport?",
+    "safe neighborhoods": "Yes! We can suggest properties in low-crime areas. Do you prefer gated communities?",
+    "good schools": "Many of our properties are near top-rated schools. Are you looking for elementary, middle, or high schools?",
+    "public transport access": "We have listings near metro stations and bus stops. Do you need a daily commute-friendly location?",
+    "shopping malls": "We have properties close to major shopping centers and malls. Do you need a specific location?",
+    
+    "mortgage options": "We provide financing assistance with multiple banks. Would you like to speak to a financial advisor?",
+    "loan assistance": "Yes, we can guide you on home loans. Do you need information on interest rates or eligibility?",
+    "down payment info": "Most mortgages require a 10-20% down payment. Would you like to check your loan eligibility?",
+    
+    "investment opportunities": "Real estate can be a great investment! Are you interested in rental income or property appreciation?",
+    "rental yield": "Certain areas have high rental returns. Would you like suggestions for investment properties?",
+    "property appreciation": "We can suggest locations where property values are rising. Would you like a forecast?",
+    
+    "contact agent": "You can contact an agent through our 'Contact Us' page or request a callback. Would you like to schedule a call?",
+    "schedule a call": "Sure! Please provide your preferred time and contact details.",
+    "visit property": "You can book a visit to a property. Would you like to schedule a tour?",
+    
+    "sell property": "If you want to sell your property, we can list it on our platform. Would you like assistance with pricing?",
+    "rent property": "Looking to rent out your house? We can help find tenants. Would you like listing details?",
+    
+    "property documents": "Property documents include sale deed, title deed, and tax receipts. Do you need help with legal verification?",
+    "legal verification": "Yes! We offer legal assistance to verify property ownership and documents.",
+    
+    "home insurance": "Home insurance protects against damage, theft, and disasters. Would you like to compare insurance plans?",
+    "insurance cost": "Home insurance costs depend on location and property value. Do you want a personalized quote?",
+    
+    "renovation services": "We offer home renovation and interior design services. Are you looking for a full renovation or minor upgrades?",
+    "interior design": "We have partnerships with top interior designers. Would you like modern, classic, or minimalist designs?",
+    
+    "thank you": "You're welcome! Let me know if you need anything else.",
+    "bye": "Goodbye! Have a great day!"
+}

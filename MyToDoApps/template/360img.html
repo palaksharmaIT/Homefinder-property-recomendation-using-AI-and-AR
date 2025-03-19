@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360° Virtual Tour</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <a-sky id="sky" src="{% static 'image/living_room.jpg' %}"></a-sky>
+
+        <a-camera position="0 1.6 0">
+            <a-cursor></a-cursor>
+        </a-camera>
+
+        <!-- Bedroom Button -->
+        <a-entity position="2 1 -5" rotation="0 0 0" 
+                  geometry="primitive: plane; height: 1; width: 2" 
+                  material="color: blue; opacity: 0.5" 
+                  class="clickable" navigate-to="{% static 'image/Bedroom.jpg' %}">
+            <a-text value="Go to Bedroom" align="center" position="0 0 0" color="white"></a-text>
+        </a-entity>
+
+        <!-- Kitchen Button -->
+        <a-entity position="-1 1 -5" rotation="0 0 0" 
+                  geometry="primitive: plane; height: 1; width: 2" 
+                  material="color: red; opacity: 0.5" 
+                  class="clickable" navigate-to="{% static 'image/kitchen.jpg' %}">
+            <a-text value="Go to Kitchen" align="center" position="0 0 0" color="white"></a-text>
+        </a-entity>
+
+        <!-- Bathroom Button -->
+        <a-entity position="5 1 -5" rotation="0 -10 0" 
+                  geometry="primitive: plane; height: 1; width: 2" 
+                  material="color: green; opacity: 0.5" 
+                  class="clickable" navigate-to="{% static 'image/Bathroom.jpg' %}">
+            <a-text value="Go to Bathroom" align="center" position="0 0 0" color="white"></a-text>
+        </a-entity>
+    </a-scene>
+
+    <script>
+        document.querySelectorAll('.clickable').forEach(el => {
+            el.addEventListener('click', function() {
+                let newRoom = this.getAttribute('navigate-to');
+                document.getElementById('sky').setAttribute('src', newRoom);
+            });
+        });
+    </script>
+</body>
+</html>

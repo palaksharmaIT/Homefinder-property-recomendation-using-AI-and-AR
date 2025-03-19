@@ -1,0 +1,111 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f9;
+}
+
+a {
+    text-decoration: none;
+    color: #4CAF50;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2e7d32;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Header */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    color: white;
+    font-weight: 500;
+}
+
+/* About Us Section */
+#about-us {
+    padding: 50px 20px;
+    background-color: white;
+    text-align: center;
+}
+
+#about-us .container {
+    max-width: 800px;
+    margin: auto;
+}
+
+#about-us h2 {
+    font-size: 2.5rem;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+#about-us h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 30px;
+}
+
+#about-us p {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 10px 0;
+    line-height: 1.8;
+}
+
+#about-us ul {
+    text-align: left;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+#about-us ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* Footer */
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
