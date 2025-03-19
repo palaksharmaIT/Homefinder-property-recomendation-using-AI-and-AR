@@ -4,6 +4,8 @@ HomeFinder is a web-based platform designed to simplify the process of finding a
 
 ## Features
 
+- **AR 360° View:** Experience immersive 360-degree property views for a realistic exploration.
+
 - **Property Search:** Search for houses, flats, or plots based on location, budget, and preferences.
 - **Property Listing:** Property owners can add detailed descriptions, images, and pricing information.
 - **AI Chatbot:** An integrated chatbot provides instant recommendations and resolves inquiries.
@@ -42,22 +44,6 @@ HomeFinder is a web-based platform designed to simplify the process of finding a
    python manage.py runserver
    ```
 6. Access the application at `http://localhost:8000`
-
-## Screenshots
-
-*Add screenshots or GIFs of your application here*
-
-## Contributing
-
-Contributions are welcome! Please follow these steps to contribute:
-
-- Fork the repository
-- Create a new branch
-- Commit your changes
-- Push to your fork
-- Submit a pull request
-
-
 
 
 
