@@ -58,3 +58,9 @@ HomeFinder is a web-based platform designed to simplify the process of finding a
 # properties 
 
 ![Screenshot 2025-03-19 230255](https://github.com/user-attachments/assets/e2f7113b-3c4a-41bb-9eb3-aaa15a94f022)
+
+
+# properties price prediction
+
+![Screenshot 2025-03-20 121252](https://github.com/user-attachments/assets/ec5964b0-c633-44b3-9dd9-345d5a57c3ca)
+
