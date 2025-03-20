@@ -45,5 +45,16 @@ HomeFinder is a web-based platform designed to simplify the process of finding a
    ```
 6. Access the application at `http://localhost:8000`
 
+# output
+
+![Screenshot 2025-03-20 115837](https://github.com/user-attachments/assets/ddc9b9d1-257e-4e1e-a29d-9158882dacf3)
 
 
+# 360° view 
+
+![Screenshot 2025-03-20 120742](https://github.com/user-attachments/assets/f2d9819a-0910-4c85-8998-95a1a56166e8)
+
+
+# properties 
+
+![Screenshot 2025-03-19 230255](https://github.com/user-attachments/assets/e2f7113b-3c4a-41bb-9eb3-aaa15a94f022)
