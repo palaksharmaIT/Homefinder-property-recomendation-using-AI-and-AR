@@ -48,23 +48,26 @@
 <div class="form-container">
     <div class="form-box">
         <h2 class="text-center">Sign Up</h2>
-        <form action="/signup" method="POST">
-            <label for="role">I am</label>
-            <select id="role" name="role" class="form-control mb-3">
+        <form action="{% url 'login' %}" method="POST">
+            {%csrf_token%}
+            <!-- <label for="role">I am</label> -->
+            <!-- <select id="role" name="role" class="form-control mb-3">
                 <option value="buyer">Buyer/Owner/Tenant</option>
                 <option value="agent">Agent</option>
                 <option value="builder">Builder</option>
-            </select>
+            </select> -->
+        
             
             <input type="text" name="name" class="form-control mb-3" placeholder="Name" required>
             <input type="email" name="email" class="form-control mb-3" placeholder="Email" required>
             <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+             <input type="password1" name="password1" class="form-control mb-3" placeholder="Password1" required>
             <input type="tel" name="mobile" class="form-control mb-3" placeholder="Mobile Number" required>
             
             <input type="checkbox" required> I agree to the Terms & Conditions
             <button type="submit" class="btn btn-primary mt-3">Sign Up</button>
         </form>
-        <p class="text-center">Already registered? <a href="/login">Login Now</a></p>
+        <p class="text-center">Already registered? <a href="{% url 'singup' %}">Login Now</a></p>
     </div>
 </div>
 

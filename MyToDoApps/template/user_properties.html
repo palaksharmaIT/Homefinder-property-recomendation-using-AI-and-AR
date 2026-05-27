@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Posted Properties</title>
+    <style>
+        .property-card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px;
+            width: 300px;
+            float: left;
+            background-color: white;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        .property-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align:center;">My Posted Properties</h1>
+
+    <div style="display:flex; flex-wrap:wrap; justify-content:center;">
+        {% for property in properties %}
+            <div class="property-card">
+                {% if property.images %}
+                    <img src="{{ property.images.url }}" alt="Property image">
+                {% endif %}
+                <h2>{{ property.title }}</h2>
+                <p>{{ property.description }}</p>
+                <p>Price: ₹{{ property.price }}</p>
+                <p>Area: {{ property.area }} sqft</p>
+                <p>Status: {{ property.status }}</p>
+                <p>Contact: {{ property.contact_name }} ({{ property.contact_number }})</p>
+            </div>
+        {% empty %}
+            <p>You haven't posted any properties yet.</p>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

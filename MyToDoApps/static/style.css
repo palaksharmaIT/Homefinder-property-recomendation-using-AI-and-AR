@@ -311,7 +311,7 @@ nav ul li.active a {
 }
 
 .chat-header {
-    background-color: #075E54;
+    background-color: #243642;
     color: white;
     padding: 15px;
     text-align: center;
@@ -355,7 +355,7 @@ nav ul li.active a {
 .chat-input button {
     padding: 10px;
     border: none;
-    background-color: #128C7E;
+    background-color: #243642;
     color: white;
     cursor: pointer;
     border-radius: 5px;

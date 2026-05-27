@@ -2,7 +2,10 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import Property
+from django.contrib.auth.decorators import login_required
 
+
+@login_required
 def post_property(request):
     if request.method == 'POST':
         property_data = Property.objects.create(  
@@ -17,6 +20,7 @@ def post_property(request):
             contact_name=request.POST.get('contact_name'),
             contact_number=request.POST.get('contact_number'),
             email=request.POST.get('email'),
+             posted_by=request.user  
         )
 
       
@@ -31,3 +35,11 @@ def post_property(request):
         return redirect('post_property')
 
     return render(request, 'prop.html')
+
+
+
+@login_required
+def user_properties(request):
+    user = request.user
+    properties = Property.objects.filter(posted_by=user).order_by('posted_by')
+    return render(request, 'user_properties.html', {'properties': properties})

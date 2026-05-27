@@ -12,6 +12,8 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from django.conf import settings
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login,logout
 def homedetail(request):
     try:
         if request.method=="POST":
@@ -46,8 +48,38 @@ def form_login(request):
      except:
           pass     
      return render(request,"form.html")
-def login(request):
-     return render(request,"login.html")
+def viewfun(request):
+    if request.method == 'POST':
+        uname = request.POST.get('name')
+        mail = request.POST.get('email')
+        paas = request.POST.get('password')
+        paas1 = request.POST.get('password1')  # optional: if using confirm password
+        phone = request.POST.get('mobile')     # this will not be saved in default User
+
+        if paas != paas1:
+            return HttpResponse("Passwords do not match.")
+
+        # Create the user
+        my_user = User.objects.create_user(username=uname, email=mail, password=paas)
+        my_user.save()
+
+        print(uname, mail, paas, phone)  # this will now print
+        return HttpResponse("Your data has been saved.")
+
+    return render(request, "login.html")
+
+def signup_view(request):
+     if request.method=='POST':
+         namee=request.POST.get('username')
+         pass2=request.POST.get('password')
+         user=authenticate(request , username=namee,password=pass2)
+         if user is not None:
+             login(request,user)
+             return render(request,'index.html')
+         else:
+             return HttpResponse("sinup first")    
+     
+     return render(request,"singup.html")
 def error(request):
      return render(request,"error.html")
 # Paths for dataset and model
@@ -151,3 +183,10 @@ def ar_home_view(request):
 
 # def property_info(request):
 #     return render(request, 'display.html')
+
+
+from django.shortcuts import render
+
+def test(request):
+    search_query = request.GET.get('search')
+    return render(request, 'test.html', {'query': search_query})

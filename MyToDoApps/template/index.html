@@ -5,8 +5,8 @@
     <div class="hero-content">
         <h2>Find Your Perfect Home</h2>
         <p>Explore the best properties, houses, flats, and plots to buy or rent!</p>
-        <form action="/search" method="GET">
-            <input type="text" name="search" placeholder="Search for a house, flat, or plot" required>
+        <form onsubmit="redirectToProperties(event)">
+            <input type="text" id="searchInput" name="search" placeholder="Search for a house, flat, or plot" required>
             <button type="submit">Search</button>
         </form>
     </div>
@@ -205,6 +205,14 @@
         document.getElementById("chat_container").style.display = "none";
     }
     </script>
+
+<script>
+    function redirectToProperties(event) {
+        event.preventDefault();
+        const query = document.getElementById('searchInput').value;
+        window.location.href = `/test/?search=${encodeURIComponent(query)}`;
+    }
+</script>
     
   </body>
   </html>

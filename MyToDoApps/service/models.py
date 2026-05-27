@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Property(models.Model):
     PROPERTY_TYPES = [
@@ -33,6 +34,13 @@ class Property(models.Model):
     contact_number = models.CharField(max_length=15)
     email = models.EmailField()
     posted_date = models.DateTimeField(auto_now_add=True)
+    posted_by = models.ForeignKey(
+    User,
+    on_delete=models.CASCADE,
+    related_name='properties',
+    null=True,
+    blank=True
+)
 
 
 
