@@ -24,7 +24,7 @@ HomeFinder is a web-based platform designed to simplify the process of finding a
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/HomeFinder.git
+   git clone https://github.com/palaksharmaIT/HomeFinder.git
    ```
 2. Navigate to the project directory:
    ```bash
