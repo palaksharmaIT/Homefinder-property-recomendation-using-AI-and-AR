@@ -10,39 +10,93 @@ body {
     color: #333;
 }
 
+/* ── Header ── */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color:#243642;
+    padding: 0.9rem 2.2rem;
+    background-color: #243642;
     color: white;
+}
+
+/* Logo wrapper */
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+/* Gold icon box */
+header .logo-icon {
+    width: 38px;
+    height: 38px;
+    background: #1a2d38;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 18px rgba(201, 168, 76, 0.35);
+}
+
+header .logo-icon i {
+    font-size: 16px;
+    color: #b5870a;
 }
 
 header .logo h1 {
-    font-size: 1.8rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.55rem;
     font-weight: 600;
-}
-header .active a {
-    background-color: red;
+    color: #f0f6fa;
+    letter-spacing: 0.02em;
 }
 
-
+/* ── Nav ── */
 nav ul {
     list-style: none;
     display: flex;
-}
-
-nav ul li {
-    margin-left: 1.5rem;
+    gap: 0.2rem;
 }
 
 nav ul li a {
-    color: white;
+    color: rgba(240, 246, 250, 0.72);
     text-decoration: none;
     font-weight: 400;
+    font-size: 0.88rem;
+    padding: 0.42rem 0.9rem;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, color 0.2s;
+    display: block;
 }
 
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #f0f6fa;
+}
+
+nav ul li.active a {
+    background-color: #3b9559;
+    color: #fff;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(59, 149, 89, 0.3);
+}
+
+/* Login link — gold accent */
+nav ul li:last-child a {
+    background: rgba(201, 168, 76, 0.15);
+    color: #d4a843;
+    border: 1px solid rgba(201, 168, 76, 0.25);
+}
+
+nav ul li:last-child a:hover {
+    background: rgba(201, 168, 76, 0.25);
+    color: #e8c060;
+}
+
+/* ── Hero ── */
 #hero {
     background: url("./image/img104.jpg") no-repeat center center/cover;
     color: white;
@@ -58,7 +112,7 @@ nav ul li a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Optional: Adds a dark overlay for better text visibility */
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .hero-content {
@@ -78,36 +132,14 @@ nav ul li a {
 
 #hero .cta-btn {
     padding: 0.75rem 2rem;
-    background-color:#243642;
-    color: blue;
+    background-color: #243642;
+    color: #d4a843;
     text-decoration: none;
     border-radius: 5px;
     font-weight: 600;
 }
 
-
-/* About Section - Blue Plate */
-/* #about {
-    background-color:#387478;
-    color: white;
-    padding: 4rem 2rem;
-    text-align: center;
-}
-
-#about h2 {
-    margin-bottom: 2rem;
-}
-
-#about p {
-    font-size: 1.2rem;
-    margin: 0 auto;
-    max-width: 700px;
-}
-#about p:hover{
-    color: #243642;
-} */
-
-/* Properties Section - Green Plate */
+/* ── Properties Section ── */
 #properties {
     background-color: #CBD2A4;
     color: white;
@@ -127,23 +159,22 @@ nav ul li a {
 
 /* Slider Styling */
 .slider {
-    background-color: white;  /* Set the default background color to white */
-    background-size: cover;  /* Ensure background images cover the area */
-    animation: slider 15s linear infinite;  /* Animation for changing background images */
+    background-color: white;
+    background-size: cover;
+    animation: slider 15s linear infinite;
     width: 100%;
-    height: 200px;  /* Adjust height as needed */
+    height: 200px;
     padding: 1.5rem;
     border-radius: 10px;
     text-align: center;
 }
 
 @keyframes slider {
-    0% { background-image: url('img6.jpg'); }
-    30% { background-image: url('img7.png'); }
-    60% { background-image: url('img8.webp'); }
+    0%   { background-image: url('img6.jpg'); }
+    30%  { background-image: url('img7.png'); }
+    60%  { background-image: url('img8.webp'); }
     100% { background-image: url('img9.png'); }
 }
-
 
 .property {
     background-color: white;
@@ -167,7 +198,7 @@ nav ul li a {
     color: #666;
 }
 
-/* Testimonials Section - Yellow Plate */
+/* ── Testimonials ── */
 #testimonials {
     background-color: #9A7E6F;
     padding: 4rem 2rem;
@@ -196,15 +227,12 @@ nav ul li a {
     margin-bottom: 1rem;
 }
 
-/* Contact Section - Purple Plate */
+/* ── Contact ── */
 #contact {
-    background-color:#54473F;
+    background-color: #54473F;
     color: white;
     padding: 4rem 2rem;
     text-align: center;
-}
-#contact:hover{
-    background-color: linear gradient;
 }
 
 #contact p {
@@ -223,7 +251,8 @@ form label {
     font-weight: 600;
 }
 
-form input, form textarea {
+form input,
+form textarea {
     margin-bottom: 1rem;
     padding: 0.75rem;
     border: 1px solid #ccc;
@@ -240,32 +269,16 @@ form button {
     font-size: 1rem;
 }
 
-/* Footer */
+/* ── Footer ── */
 footer {
     text-align: center;
     padding: 2rem;
     background-color: gray;
     color: white;
 }
-/* Navigation Link Styles */
-nav ul li a {
-    text-decoration: none;
-    color: white; /* Default link color */
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease-in-out;
-}
 
-nav ul li.active a {
-    background-color: #3b9559; /* Highlight color for the active link */
-    font-weight: bold; /* Make it bold */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: add a subtle shadow */
-}
-
+/* ── Chat Widget ── */
 .css-15c8g2n {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
     background-color: #fff !important;
     width: 290px;
@@ -275,24 +288,16 @@ nav ul li.active a {
     right: 20px;
     position: fixed;
     z-index: 9;
-    font-family: 'Source Sans Pro',sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     border-radius: 2px;
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
-    -webkit-letter-spacing: 0;
-    -moz-letter-spacing: 0;
-    -ms-letter-spacing: 0;
     letter-spacing: 0;
     cursor: pointer;
-    -webkit-transition: all 200ms ease-in-out;
     transition: all 200ms ease-in-out;
-    -webkit-transform: none;
-    -ms-transform: none;
-    transform: none;
     opacity: 1;
 }
-
 
 .chat-container {
     width: 350px;
@@ -307,7 +312,6 @@ nav ul li.active a {
     bottom: 75px;
     right: 10px;
     z-index: 1000;
-   
 }
 
 .chat-header {
@@ -367,15 +371,14 @@ nav ul li.active a {
 }
 
 .chat-box {
-    height: 385px;  /* Ensure a fixed height */
+    height: 385px;
     padding: 10px;
-    overflow-y: auto; /* Enable scrolling */
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
-    scrollbar-width: thin; /* For Firefox */
+    scrollbar-width: thin;
 }
 
-/* For WebKit Browsers (Chrome, Edge, Safari) */
 .chat-box::-webkit-scrollbar {
     width: 8px;
 }

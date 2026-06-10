@@ -1,0 +1,572 @@
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeFinder – Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+        --ink:    #0d1c24;
+        --deep:   #1a2d38;
+        --base:   #243642;
+        --mid:    #2e4554;
+        --rim:    #3b5a6e;
+        --accent: #4a7a94;
+        --pale:   #7aafc8;
+        --gold:   #c9a84c;
+        --white:  #f0f6fa;
+        --muted:  rgba(240,246,250,0.42);
+        }
+
+        body {
+        min-height: 100vh;
+        display: flex;
+        font-family: 'DM Sans', sans-serif;
+        background: var(--ink);
+        overflow-x: hidden;
+        }
+
+        /* ── Left form panel ── */
+        .form-panel {
+        width: 500px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 52px;
+        position: relative;
+        z-index: 1;
+        background: var(--ink);
+        overflow-y: auto;
+        /* teal shadow toward the visual */
+        box-shadow: 40px 0 100px rgba(36,54,66,0.5);
+        }
+
+        .form-card {
+        width: 100%;
+        animation: slideIn 0.65s cubic-bezier(0.22,1,0.36,1) both;
+        }
+
+        @keyframes slideIn {
+        from { opacity: 0; transform: translateY(24px); }
+        to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Brand ── */
+        .top-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 32px;
+        }
+
+        .logo-icon {
+        width: 38px; height: 38px;
+        background: var(--gold);
+        border-radius: 9px;
+        display: grid;
+        place-items: center;
+        font-size: 16px;
+        color: #fff;
+        box-shadow: 0 4px 18px rgba(201,168,76,0.3);
+        }
+
+        .logo-text {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--white);
+        letter-spacing: 0.04em;
+        }
+
+        /* ── Header ── */
+        .form-header { margin-bottom: 28px; }
+
+        .form-header .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--pale);
+        font-weight: 500;
+        margin-bottom: 7px;
+        }
+
+        .form-header h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 34px;
+        font-weight: 500;
+        color: var(--white);
+        line-height: 1.1;
+        }
+
+        .form-header p {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 300;
+        }
+
+        /* ── Fields ── */
+        .field { margin-bottom: 14px; }
+
+        .field label {
+        display: block;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: rgba(240,246,250,0.42);
+        margin-bottom: 6px;
+        }
+
+        .input-wrap { position: relative; }
+
+        .input-wrap i {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--accent);
+        font-size: 13px;
+        pointer-events: none;
+        transition: color 0.2s;
+        }
+
+        .input-wrap input {
+        width: 100%;
+        height: 48px;
+        background: var(--deep);
+        border: 1px solid var(--mid);
+        border-radius: 10px;
+        padding: 0 14px 0 40px;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 14px;
+        color: var(--white);
+        outline: none;
+        transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+        box-shadow: inset 0 2px 8px rgba(13,28,36,0.45);
+        }
+
+        .input-wrap input::placeholder { color: rgba(240,246,250,0.2); }
+
+        .input-wrap input:focus {
+        border-color: var(--pale);
+        background: var(--mid);
+        box-shadow: inset 0 2px 8px rgba(13,28,36,0.3), 0 0 0 3px rgba(122,175,200,0.13);
+        }
+
+        .input-wrap:focus-within i { color: var(--pale); }
+
+        .field-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        }
+
+        /* ── Strength bar ── */
+        .strength-bar {
+        display: flex;
+        gap: 4px;
+        margin-top: 5px;
+        }
+
+        .strength-bar span {
+        flex: 1;
+        height: 3px;
+        border-radius: 2px;
+        background: var(--mid);
+        transition: background 0.3s;
+        }
+
+        /* ── Checkbox ── */
+        .check-field {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin: 16px 0;
+        }
+
+        .check-field input[type="checkbox"] {
+        appearance: none;
+        width: 18px; height: 18px;
+        border: 1px solid var(--rim);
+        border-radius: 5px;
+        flex-shrink: 0;
+        margin-top: 1px;
+        cursor: pointer;
+        position: relative;
+        background: var(--deep);
+        transition: border-color 0.2s, background 0.2s;
+        }
+
+        .check-field input[type="checkbox"]:checked {
+        background: var(--base);
+        border-color: var(--pale);
+        }
+
+        .check-field input[type="checkbox"]:checked::after {
+        content: '✓';
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%,-50%);
+        font-size: 11px;
+        color: var(--pale);
+        font-weight: 700;
+        }
+
+        .check-field label {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.5;
+        cursor: pointer;
+        }
+
+        .check-field label a {
+        color: var(--pale);
+        text-decoration: none;
+        }
+
+        /* ── Button ── */
+        .btn-primary {
+        width: 100%;
+        height: 52px;
+        background: var(--base);
+        border: 1px solid var(--rim);
+        border-radius: 10px;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: var(--white);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+        box-shadow:
+            0 4px 28px rgba(36,54,66,0.85),
+            0 1px 0 rgba(122,175,200,0.1) inset;
+        }
+
+        .btn-primary:hover {
+        background: var(--mid);
+        transform: translateY(-2px);
+        box-shadow:
+            0 8px 44px rgba(36,54,66,1),
+            0 0 0 1px rgba(122,175,200,0.22),
+            0 1px 0 rgba(122,175,200,0.1) inset;
+        }
+
+        .btn-primary:active { transform: translateY(0); }
+
+        /* ── Login link ── */
+        .login-link {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 13px;
+        color: rgba(240,246,250,0.36);
+        }
+
+        .login-link a {
+        color: var(--pale);
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 4px;
+        transition: color 0.2s;
+        }
+        .login-link a:hover { color: var(--white); }
+
+        /* ── Right visual panel ── */
+        .visual-panel {
+        flex: 1;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 60px 64px;
+        overflow: hidden;
+        background: var(--base);
+        }
+
+        .visual-panel::before {
+        content: '';
+        position: absolute; inset: 0;
+        background:
+            linear-gradient(150deg, rgba(36,54,66,0.35) 0%, rgba(13,28,36,0.82) 100%),
+            url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80') center/cover no-repeat;
+        }
+
+        .visual-panel::after {
+        content: '';
+        position: absolute; inset: 0;
+        background: linear-gradient(to left, transparent 50%, var(--ink) 100%);
+        }
+
+        /* inner teal shadow atmosphere */
+        .visual-panel .shadow-layer {
+        position: absolute; inset: 0;
+        box-shadow: inset 0 0 120px rgba(36,54,66,0.65), inset 0 80px 100px rgba(13,28,36,0.4);
+        z-index: 1;
+        }
+
+        .visual-content {
+        position: relative;
+        z-index: 2;
+        }
+
+        .visual-head {
+        margin-bottom: 36px;
+        }
+
+        .visual-head .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--pale);
+        font-weight: 500;
+        margin-bottom: 10px;
+        }
+
+        .visual-head h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(28px, 2.8vw, 42px);
+        font-weight: 500;
+        color: var(--white);
+        line-height: 1.15;
+        text-shadow: 0 4px 28px rgba(13,28,36,0.7);
+        }
+
+        .visual-head h2 em {
+        font-style: normal;
+        color: var(--gold);
+        }
+
+        .perks {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        }
+
+        .perk {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 20px;
+        background: rgba(36,54,66,0.45);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(74,122,148,0.2);
+        border-radius: 14px;
+        transition: background 0.2s, box-shadow 0.2s;
+        animation: fadeUp 0.5s cubic-bezier(0.22,1,0.36,1) both;
+        box-shadow: 0 4px 24px rgba(13,28,36,0.4);
+        }
+
+        .perk:nth-child(1) { animation-delay: 0.1s; }
+        .perk:nth-child(2) { animation-delay: 0.2s; }
+        .perk:nth-child(3) { animation-delay: 0.3s; }
+        .perk:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(18px); }
+        to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .perk:hover {
+        background: rgba(46,69,84,0.6);
+        box-shadow: 0 6px 32px rgba(36,54,66,0.6);
+        }
+
+        .perk-icon {
+        width: 42px; height: 42px;
+        background: var(--base);
+        border: 1px solid var(--rim);
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        font-size: 17px;
+        color: var(--pale);
+        flex-shrink: 0;
+        box-shadow: 0 2px 12px rgba(36,54,66,0.5);
+        }
+
+        .perk-text .title {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--white);
+        margin-bottom: 2px;
+        }
+
+        .perk-text .desc {
+        font-size: 12px;
+        color: rgba(240,246,250,0.4);
+        font-weight: 300;
+        }
+
+        /* ── Ambient glow ── */
+        .glow {
+        position: fixed;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 0;
+        filter: blur(110px);
+        }
+        .glow-1 {
+        width: 300px; height: 300px;
+        background: rgba(36,54,66,0.55);
+        top: -50px; left: 60px;
+        }
+        .glow-2 {
+        width: 260px; height: 260px;
+        background: rgba(36,54,66,0.4);
+        bottom: -40px; left: 200px;
+        }
+
+        @media (max-width: 900px) {
+        .visual-panel { display: none; }
+        .form-panel { width: 100%; padding: 36px 24px; }
+        }
+    </style>
+    </head>
+    <body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <!-- Left: form -->
+    <div class="form-panel">
+        <div class="form-card">
+        <div class="top-brand">
+            <div class="logo-icon"><i class="fa-solid fa-house"></i></div>
+            <span class="logo-text">HomeFinder</span>
+        </div>
+
+        <div class="form-header">
+            <div class="eyebrow">Create account</div>
+            <h1>Join<br>HomeFinder</h1>
+            <p>Start your journey to the perfect home today.</p>
+        </div>
+
+        <form method="post" action="{% url 'singup' %}">
+            {% csrf_token %} 
+
+            <div class="field-row">
+            <div class="field">
+                <label for="name">Full Name</label>
+                <div class="input-wrap">
+                <i class="fa-regular fa-id-card"></i>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+                </div>
+            </div>
+            <div class="field">
+                <label for="mobile">Mobile</label>
+                <div class="input-wrap">
+                <i class="fa-solid fa-phone"></i>
+                <input type="tel" id="mobile" name="mobile" placeholder="+91 00000 00000" required>
+                </div>
+            </div>
+            </div>
+
+            <div class="field">
+            <label for="email">Email Address</label>
+            <div class="input-wrap">
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+            </div>
+
+            <div class="field">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="password" name="password" placeholder="Create a strong password" required
+                oninput="updateStrength(this.value)">
+            </div>
+            <div class="strength-bar" id="strengthBar">
+                <span id="s1"></span><span id="s2"></span><span id="s3"></span><span id="s4"></span>
+            </div>
+            </div>
+
+            <div class="field">
+            <label for="password1">Confirm Password</label>
+            <div class="input-wrap">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="password1" name="password1" placeholder="Repeat your password" required>
+            </div>
+            </div>
+
+            <div class="check-field">
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms">I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></label>
+            </div>
+
+            <button type="submit" class="btn-primary">Create Account &nbsp;→</button>
+        </form>
+
+        <p class="login-link">
+            Already have an account?
+            <a href="{% url 'login' %}">Log In</a>
+            <!-- Django: <a href="{% url 'login' %}">Log In</a> -->
+        </p>
+        </div>
+    </div>
+
+    <!-- Right: visual -->
+    <div class="visual-panel">
+        <div class="shadow-layer"></div>
+        <div class="visual-content">
+        <div class="visual-head">
+            <div class="eyebrow">Why HomeFinder?</div>
+            <h2>Everything you need<br>to <em>find home</em></h2>
+        </div>
+        <div class="perks">
+            <div class="perk">
+            <div class="perk-icon"><i class="fa-solid fa-magnifying-glass-location"></i></div>
+            <div class="perk-text">
+                <div class="title">Smart Property Search</div>
+                <div class="desc">Filter by location, price, type & amenities instantly</div>
+            </div>
+            </div>
+            <div class="perk">
+            <div class="perk-icon"><i class="fa-regular fa-heart"></i></div>
+            <div class="perk-text">
+                <div class="title">Save Favourites</div>
+                <div class="desc">Bookmark and compare properties across sessions</div>
+            </div>
+            </div>
+            <div class="perk">
+            <div class="perk-icon"><i class="fa-solid fa-file-invoice"></i></div>
+            <div class="perk-text">
+                <div class="title">List Your Property</div>
+                <div class="desc">Reach thousands of verified buyers & renters</div>
+            </div>
+            </div>
+            <div class="perk">
+            <div class="perk-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="perk-text">
+                <div class="title">Trusted & Secure</div>
+                <div class="desc">Verified listings and secure communication</div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        function updateStrength(val) {
+        const bars = ['s1','s2','s3','s4'].map(id => document.getElementById(id));
+        let score = 0;
+        if (val.length >= 6) score++;
+        if (/[A-Z]/.test(val)) score++;
+        if (/[0-9]/.test(val)) score++;
+        if (/[^A-Za-z0-9]/.test(val)) score++;
+        const colors = ['#e74c3c','#e67e22','#f1c40f','#7aafc8'];
+        bars.forEach((b, i) => {
+            b.style.background = i < score ? colors[score - 1] : 'var(--mid)';
+        });
+        }
+    </script>
+    </body>
+    </html>

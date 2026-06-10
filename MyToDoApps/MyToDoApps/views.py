@@ -48,7 +48,7 @@ def form_login(request):
      except:
           pass     
      return render(request,"form.html")
-def viewfun(request):
+def singup_user(request):
     if request.method == 'POST':
         uname = request.POST.get('name')
         mail = request.POST.get('email')
@@ -66,9 +66,9 @@ def viewfun(request):
         print(uname, mail, paas, phone)  # this will now print
         return HttpResponse("Your data has been saved.")
 
-    return render(request, "login.html")
+    return render(request, "singin.html")
 
-def signup_view(request):
+def login_user(request):
      if request.method=='POST':
          namee=request.POST.get('username')
          pass2=request.POST.get('password')
@@ -79,7 +79,7 @@ def signup_view(request):
          else:
              return HttpResponse("sinup first")    
      
-     return render(request,"singup.html")
+     return render(request,"login.html")
 def error(request):
      return render(request,"error.html")
 # Paths for dataset and model

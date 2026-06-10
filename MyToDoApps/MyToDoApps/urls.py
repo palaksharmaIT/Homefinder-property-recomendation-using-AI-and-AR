@@ -31,8 +31,8 @@ urlpatterns = [
     path('testimonials/', views.testimonials, name='testimonials'),
     path('contact/', views.contact, name='contact'),
     path('form/',views.form_login),
-    path('login/', views.viewfun, name='login'), 
-    path('singup/',views.signup_view,name='singup'),
+    path('singup/', views.singup_user, name='singup'), 
+    path('login/',views.login_user,name='login'),
     path('error/', views.error, name='error'), 
     path('result/', views.result, name='result'),  
     path('real/', views.real, name='real'), 
@@ -46,4 +46,5 @@ urlpatterns = [
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
 
