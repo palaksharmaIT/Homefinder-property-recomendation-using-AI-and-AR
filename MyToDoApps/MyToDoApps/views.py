@@ -14,6 +14,14 @@ import json
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
+from dotenv import load_dotenv
+import google.generativeai as genai
+
+# ================= LOAD ENV =================
+load_dotenv()
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+model = genai.GenerativeModel("models/gemini-2.5-flash")
+
 def homedetail(request):
     try:
         if request.method=="POST":
@@ -29,8 +37,6 @@ def about(request):
     return render(request,"about.html")
 def homee(request):
      return render(request,"pricee.html")
-def test(request):
-     return render(request,"test.html")
 def properties(request):
      return render(request,"test.html")
 def testimonials(request):
@@ -105,9 +111,6 @@ def train_model():
 if not os.path.exists(MODEL_PATH):
     train_model()
 
-# Home Page
-def homee(request):
-    return render(request, "pricee.html")
 
 # Predict Function
 def result(request):
@@ -143,28 +146,67 @@ def result(request):
 
 
 #chatbot 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-CHATBOT_RESPONSES_FILE = os.path.join(BASE_DIR, "chatbot_responses.json")
+# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# CHATBOT_RESPONSES_FILE = os.path.join(BASE_DIR, "chatbot_responses.json")
 
 
-def load_chatbot_responses():
-    try:
-        with open(CHATBOT_RESPONSES_FILE, "r") as file:
-            return json.load(file)
-    except Exception as e:
-        print("Error loading chatbot responses:", e)
-        return {}
+# def load_chatbot_responses():
+#     try:
+#         with open(CHATBOT_RESPONSES_FILE, "r") as file:
+#             return json.load(file)
+#     except Exception as e:
+#         print("Error loading chatbot responses:", e)
+#         return {}
 
 
+# @csrf_exempt
+# def chatbot_response(request):
+#     if request.method == "POST":
+#         try:
+#             data = json.loads(request.body) 
+#             user_message = data.get("message", "").lower()
+#             chatbot_responses = load_chatbot_responses()  
+#             response = chatbot_responses.get(user_message, "Sorry, I can only provide basic information about HomeFinder.")
+#             return JsonResponse({"reply": response})
+#         except json.JSONDecodeError:
+#             return JsonResponse({"reply": "Invalid request."}, status=400)
+
+#     return JsonResponse({"reply": "Use POST method to interact with the chatbot."})
+
+# ================= GEMINI FUNCTION =================
+def get_gemini_response(user_message):
+    prompt = f"""
+You are a helpful AI assistant for a real estate platform called HomeFinder.
+
+Rules:
+- Only answer real estate related queries (houses, flats, plots, renting, buying)
+- If user asks unrelated questions, politely bring them back to real estate topic
+- Be clear, short, and helpful
+
+User message: {user_message}
+"""
+
+    response = model.generate_content(prompt)
+    return response.text
+
+
+# ================= CHATBOT API =================
 @csrf_exempt
 def chatbot_response(request):
     if request.method == "POST":
         try:
-            data = json.loads(request.body) 
-            user_message = data.get("message", "").lower()
-            chatbot_responses = load_chatbot_responses()  
-            response = chatbot_responses.get(user_message, "Sorry, I can only provide basic information about HomeFinder.")
-            return JsonResponse({"reply": response})
+            data = json.loads(request.body)
+
+            user_message = data.get("message", "").strip()
+
+            if not user_message:
+                return JsonResponse({"reply": "Please enter a message."})
+
+
+            reply = get_gemini_response(user_message)
+
+            return JsonResponse({"reply": reply})
+
         except json.JSONDecodeError:
             return JsonResponse({"reply": "Invalid request."}, status=400)
 
@@ -185,7 +227,7 @@ def ar_home_view(request):
 #     return render(request, 'display.html')
 
 
-from django.shortcuts import render
+
 
 def test(request):
     search_query = request.GET.get('search')
